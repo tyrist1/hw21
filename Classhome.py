@@ -55,7 +55,7 @@ class Storage(BaseStorage, ABC):
         if self.get_free_space() > count:
             for key in self._items.keys():
                 if name == key:
-                    self._items[key] = self._items[key] + count
+                    self._items[key] = self._items[key] + count #  почему сюда прибавили
                     is_found = True
             if not is_found:
                 self._items[key] = count
