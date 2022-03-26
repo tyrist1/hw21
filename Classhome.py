@@ -22,7 +22,7 @@ class BaseStorage:
     # `get_items()` - возвращает сожержание склада в словаре {товар: количество}
     #
     # `get_unique_items_count()` - возвращает количество уникальных товаров.
-# _________________________________________________________абстрактные поля и методы
+    # _________________________________________________________абстрактные поля и методы
     @abstractmethod
     def add(self):
         pass
@@ -43,6 +43,7 @@ class BaseStorage:
     def get_unique_items_count(self):
         pass
 
+
 class Storage(BaseStorage, ABC):
     def __init__(self, items, capacity):
         self._items = {}
@@ -62,7 +63,6 @@ class Storage(BaseStorage, ABC):
         else:
             print("товар не может быть добавлен")
 
-
     @abstractmethod
     def remove(self):
         pass
@@ -78,9 +78,3 @@ class Storage(BaseStorage, ABC):
     @abstractmethod
     def get_unique_items_count(self):
         pass
-
-
-
-
-
-
