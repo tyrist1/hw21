@@ -1,16 +1,13 @@
-# This is a sample Python script.
+from Classhome import Shop, Store, Request, Storage
+from func import store_shop
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
+    request = Request(store_shop())
+    print(request.__repr__())
+    shop=Shop()
+    store=Store()
+    print(f" осталось в магазине {shop.get_items()}")
+    print(f" осталось в Cкладе {store.get_items()}")
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+
+
