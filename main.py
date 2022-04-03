@@ -1,13 +1,13 @@
 from Classhome import Shop, Store, Request, Storage
-from func import store_shop
+from func import store_shop, view_items_all
 
 if __name__ == '__main__':
-    request = Request(store_shop())
-    print(request.__repr__())
-    shop=Shop()
-    store=Store()
-    print(f" осталось в магазине {shop.get_items()}")
-    print(f" осталось в Cкладе {store.get_items()}")
+
+    shop_class, store_class, location = store_shop()
+    print(f"Осталось в магазине {view_items_all(shop_class.get_items())}")
+    print(f"Осталось в складе {view_items_all(store_class.get_items())}")
+
+
 
 
 

@@ -1,4 +1,5 @@
 from warehouse import shop, store
+import copy
 # Создайте абстрактный класс Storage
 
 from abc import ABC, abstractmethod
@@ -32,8 +33,8 @@ class Storage(ABC):
 # Реализуйте класс Store
 
 class Store(Storage):
-    def __init__(self):
-        self.items = store
+    def __init__(self, dict_init={}):
+        self.items = copy.deepcopy(dict_init)
         self.capacity = 100
 
     def add(self, name, count):
@@ -54,7 +55,7 @@ class Store(Storage):
         for key in self.items.keys():
             if name == key and self.items[key] - count >= 0:
                 self.items[key] = self.items[key] - count
-                print(f' покупка совершена, остаток товара {name} : {self.items[key]}')
+                print(f'Покупка совершена, остаток товара {name} : {self.items[key]}')
             else:
                 print(f'''{name} такого товара нет!!! 
                 либо количество недостаточно , остаток {self.items[key]}''')
@@ -72,9 +73,9 @@ class Store(Storage):
 
 
 class Shop(Store):
-    def __init__(self, limit=5):
+    def __init__(self, limit=5, dict_init={}):
         super().__init__()
-        self.items = shop
+        self.items = copy.deepcopy(dict_init)
         self._capacity = 20
         self._limit = limit
 
